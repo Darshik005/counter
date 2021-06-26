@@ -19,6 +19,10 @@ class Contact_list {
     return allcontacts;
   }
 
+  deletContact(Contact contact){
+    allcontacts.remove(contact);
+  }
+
   getContact() {
     return allcontacts;
   }

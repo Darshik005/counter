@@ -4,7 +4,7 @@ import 'package:contact_book_bloc/model/contact.dart';
 import 'package:contact_book_bloc/model/contact_list.dart';
 
 class Contactbloc {
-  Contact_list? contact_list = Contact_list(allcontacts: []);
+  late Contact_list? contact_list = Contact_list(allcontacts: []);
   late StreamController<contactAction<Contact_list>> contactController =
       StreamController<contactAction<Contact_list>>();
 
@@ -51,6 +51,11 @@ class Contactbloc {
         Contact(name: name, email: email, address: address, mobileNo: mobile),
         previousmobile);
     inputsink.add(contactAction.edit(contact_list));
+  }
+
+  deleteContact(Contact contact){
+    contact_list?.deletContact(contact);
+    inputsink.add(contactAction.view(contact_list));
   }
 
   dispose() {

@@ -73,6 +73,7 @@ class _AddContactState extends State<AddContact> {
                   onSaved: (newValue) {
                     mobilenum = int.parse(newValue!);
                   },
+                  keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value == null) {
                       return "mobile number cannot be null";

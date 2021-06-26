@@ -84,6 +84,7 @@ class _EditContactState extends State<EditContact> {
                   onSaved: (newValue) {
                     mobilenum = int.parse(newValue!);
                   },
+                  keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null) {
                       return "mobile number cannot be null";

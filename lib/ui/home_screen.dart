@@ -116,21 +116,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(contactdata[index].mobileNo.toString()),
                 ],
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => EditContact(
-                        oldaddress: contactdata[index].address,
-                        oldname: contactdata[index].name,
-                        oldemail: contactdata[index].email,
-                        oldphone: contactdata[index].mobileNo,
-                        editfn: editContactFn,
-                      ),
-                    ),
-                  );
-                },
-                child: Icon(Icons.edit),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => EditContact(
+                            oldaddress: contactdata[index].address,
+                            oldname: contactdata[index].name,
+                            oldemail: contactdata[index].email,
+                            oldphone: contactdata[index].mobileNo,
+                            editfn: editContactFn,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Icon(Icons.edit),
+                  ),
+                  SizedBox(width: 10,),
+                  InkWell(
+                    onTap: () {
+                      _bloc.deleteContact(contactdata[index]);
+                    },
+                    child: Icon(Icons.delete),
+                  ),
+                ],
               ),
             ],
           ),
